@@ -1,0 +1,450 @@
+/* ===================================================================
+   Final merged CSS (Option A - nav links closer to logo)
+   =================================================================== */
+
+/* -------- Theme variables -------- */
+:root{
+  --bg: #34353b;
+  --card: #3d3e42;
+  --accent: #fec86a;
+  --muted: #98999a;
+  --text: #fbfbfb;
+  --max-width: 1400px;
+}
+
+/* -------- Base / Reset -------- */
+@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Roboto:wght@100;300;400;500;700;900&display=swap");
+
+*{box-sizing:border-box;padding:0;margin:0}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{
+  font-family:"Roboto",sans-serif;
+  background-color:var(--bg);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* -------- Header / Hero -------- */
+header{
+  height:100vh;
+  padding:36px 100px;
+  background-image:url(assets/meme.jpg);
+  background-position:right;
+  background-size:contain;
+  background-repeat:no-repeat;
+  width:100vw;
+}
+
+/* -------- Logo (fixed top-left, responsive height) -------- */
+.logo-img{
+  position:fixed;
+  top:10px;
+  left:10px;
+  height:60px;        /* fixed height base */
+  width:auto;
+  background-color:var(--bg);
+  padding:6px;
+  border-radius:6px;
+  z-index:2000;
+  transition:height .28s ease,padding .28s ease;
+}
+@media (max-width:768px){ .logo-img{ height:50px; padding:4px } }
+@media (max-width:480px){ .logo-img{ height:42px; padding:3px } }
+
+/* -------- Nav bar (fixed) -------- */
+header nav, nav{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  display:flex;
+  align-items:center;
+  z-index:1500;
+  padding:12px 20px;
+  background:transparent;
+  box-sizing:border-box;
+}
+
+/* NAV: Option A - links closer to logo (left-middle on desktop),
+   mobile unchanged (keeps responsive behaviour) */
+.nav-links-wrapper{
+  flex:1;
+  display:flex;
+  justify-content:flex-start; /* place links near logo */
+  padding-left:110px;         /* reserve space after logo */
+  padding-right:20px;
+  align-items:center;
+}
+
+/* nav list */
+.nav-links-wrapper ul{
+  display:flex;
+  gap:24px;
+  align-items:center;
+  margin:0;
+  padding:0;
+  list-style:none;
+}
+.nav-links-wrapper ul li a{
+  color:var(--muted);
+  text-decoration:none;
+  font-size:20px;
+  transition:color .25s ease;
+}
+.nav-links-wrapper ul li a:hover,
+.nav-links-wrapper ul li a.active{ color:var(--text) }
+
+/* responsive nav spacing (mobile keeps previous behaviour) */
+@media(max-width:1024px){
+  .nav-links-wrapper{ padding-left:90px }
+  .nav-links-wrapper ul li a{ font-size:19px }
+}
+@media(max-width:768px){
+  .nav-links-wrapper{ justify-content:flex-end; padding-left:0; padding-right:10px; transform:none }
+  .nav-links-wrapper ul li a{ font-size:17px }
+}
+@media(max-width:480px){
+  .nav-links-wrapper{ padding-right:4px }
+  .nav-links-wrapper ul{ gap:14px }
+}
+
+/* keep hero content below nav/logo */
+header{ padding-top: calc(60px + 18px); }
+
+/* -------- Landing / Intro -------- */
+.landing{
+  display:flex;
+  height:90vh;
+  align-items:center;
+  justify-content:space-between;
+}
+.landing .intro{ display:flex; flex-direction:column }
+.landing .intro h3{
+  color:var(--text); font-weight:400; font-size:32px; margin-left:10vw;
+}
+.landing .intro h3 span{ color:var(--accent); font-weight:600; font-size:3.5rem }
+
+/* -------- About -------- */
+.about{
+  width:100vw;
+  padding:clamp(28px,6vw,100px);
+  box-sizing:border-box;
+  height:auto;
+}
+.about h1{
+  font-size:clamp(28px,4.5vw,56px);
+  font-weight:700;
+  color:var(--text);
+  font-family:"Libre Baskerville",serif;
+  padding-inline:clamp(12px,8vw,100px);
+  box-sizing:border-box;
+  margin:0 0 .6rem 0;
+}
+.about .description{
+  display:flex;
+  align-items:flex-start;
+  gap:clamp(16px,3vw,32px);
+  max-width:1200px;
+  margin:0 auto;
+  padding-top:8px;
+  box-sizing:border-box;
+}
+.about .description .line{
+  height:4px;
+  width:clamp(60px,20vw,400px);
+  background-color:var(--accent);
+  border-radius:2px;
+  align-self:flex-start;
+}
+.about .description p{
+  color:var(--text);
+  font-size:clamp(.95rem,1.6vw,1.15rem);
+  line-height:1.6;
+  max-width:75ch;
+  margin:0;
+  word-wrap:break-word;
+}
+.about .description p span{ color:var(--accent) }
+
+@media (max-width:720px){
+  .about{ padding:clamp(20px,6vw,48px) }
+  .about .description{ flex-direction:column; align-items:flex-start; gap:12px }
+  .about .description .line{ width:clamp(40px,30vw,120px); height:3px }
+  .about .description p{ font-size:clamp(.95rem,2.6vw,1rem) }
+}
+
+/* ============================
+   UPDATED SKILLS SECTION (BIGGER)
+   ============================ */
+
+.skills {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: clamp(28px, 6vw, 100px);
+  box-sizing: border-box;
+}
+
+.skills h1 {
+  font-size: clamp(30px, 5vw, 60px); /* slightly bigger */
+  font-weight: 700;
+  color: var(--text);
+  font-family: "Libre Baskerville", serif;
+  margin-bottom: clamp(18px, 4vw, 36px);
+  width: 100%;
+  max-width: 1200px;
+  padding-inline: clamp(12px, 6vw, 100px);
+}
+
+.cards {
+  display: grid;
+  width: 100%;
+  max-width: 1300px; /* a little wider */
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* increased min size */
+  gap: clamp(16px, 2.5vw, 32px);
+  padding-inline: clamp(12px, 6vw, 100px);
+  margin-top: clamp(20px, 3.5vw, 55px);
+  justify-items: center;
+}
+
+/* -------- Bigger cards -------- */
+.skill-card {
+  width: 100%;
+  max-width: 260px;        /* was 220px -> bigger */
+  aspect-ratio: 1 / 1;
+  background-color: var(--card);
+  border-radius: 22px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(12px, 2.5vw, 22px);
+  transition: transform 260ms ease, box-shadow 260ms ease, background-color 260ms ease;
+  padding: clamp(16px, 2.5vw, 24px); /* more padding to breathe */
+  cursor: default;
+}
+
+/* Scale-up hover remains smooth */
+.skill-card:hover,
+.skill-card:focus {
+  transform: translateY(-7px) scale(1.04);
+  background-color: var(--accent);
+  box-shadow: 0 14px 34px rgba(20, 20, 20, 0.22);
+}
+
+/* -------- Bigger icons -------- */
+.skill-card img {
+  width: clamp(60px, 12vw, 110px); /* was ~48 → bigger */
+  height: auto;
+  object-fit: contain;
+}
+
+/* -------- Bigger text -------- */
+.skill-card h2 {
+  font-size: clamp(16px, 2.5vw, 22px); /* slightly larger and cleaner */
+  font-weight: 500;
+  color: var(--text);
+  margin: 0;
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* ------- Mobile Enhanced ------- */
+/* ------- Mobile: ALWAYS 2 cards per row ------- */
+@media (max-width: 600px) {
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr) !important;  
+    gap: 16px;
+    padding-inline: 16px;
+    justify-items: center;
+  }
+
+  .skill-card {
+    max-width: 100%;
+    padding: 16px;
+  }
+
+  .skill-card img {
+    width: 70px;
+  }
+
+  .skill-card h2 {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    padding-inline: 16px;
+  }
+
+  .skill-card {
+    max-width: 100%;
+    padding: 16px;
+  }
+
+  .skill-card img {
+    width: 70px; /* nice bump for phone screens */
+  }
+
+  .skill-card h2 {
+    font-size: 15px;
+  }
+}
+
+/* Reduced motion users */
+@media (prefers-reduced-motion: reduce) {
+  .skill-card {
+    transition: none !important;
+    transform: none !important;
+  }
+}
+
+
+/* -------- Portfolio (final responsive + full-cover overlay) -------- */
+.portfolio{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  padding:clamp(40px,6vw,100px);
+  box-sizing:border-box;
+}
+.portfolio h1{
+  font-size:clamp(32px,5vw,56px);
+  font-family:"Libre Baskerville",serif;
+  color:var(--text);
+  margin-bottom:30px;
+  text-align:center;
+}
+.portfolio-cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:clamp(14px,2vw,30px);
+  width:100%;
+  max-width:var(--max-width);
+  justify-items:center;
+  align-items:start;
+  padding-inline:clamp(10px,2vw,40px);
+  box-sizing:border-box;
+}
+.portfolio-card{
+  display:block;
+  position:relative;
+  width:100%;
+  aspect-ratio:1/1;
+  border-radius:16px;
+  overflow:hidden;
+  background:var(--card);
+  transition:transform .28s ease,box-shadow .28s ease;
+  text-decoration:none;
+  color:inherit;
+}
+.portfolio-card img{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:transform .4s ease;
+}
+.portfolio-card .overlay{
+  position:absolute;
+  inset:0;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  padding:16px;
+  background:rgba(52,53,59,0.0);
+  opacity:0;
+  transition:background .28s ease,opacity .28s ease;
+  text-align:center;
+  pointer-events:none;
+}
+.portfolio-card:hover .overlay,
+.portfolio-card:focus .overlay{
+  background:rgba(52,53,59,0.78);
+  opacity:1;
+}
+.portfolio-card:hover img,
+.portfolio-card:focus img{ transform:scale(1.04) }
+.portfolio-card .overlay h3{
+  margin:0;
+  color:var(--text);
+  font-size:clamp(16px,2vw,24px);
+  font-family:"Libre Baskerville",serif;
+  font-weight:700;
+  letter-spacing:.3px;
+}
+.portfolio-card .overlay .cta{
+  display:inline-block;
+  background:rgba(254,200,106,0.95);
+  color:#34353b;
+  padding:8px 14px;
+  border-radius:8px;
+  font-weight:600;
+  font-size:clamp(12px,1.2vw,14px);
+  pointer-events:none;
+}
+.portfolio-card:focus{ outline:none; box-shadow:0 8px 28px rgba(0,0,0,0.25) }
+
+/* Portfolio mobile: overlay appears only on touch/focus/click (JS handles `.open`) */
+@media(max-width:768px){
+  .portfolio-cards{ display:flex; flex-wrap:wrap; justify-content:center; gap:12px }
+  .portfolio-card{ flex:0 0 calc(50% - 12px); max-width:260px; aspect-ratio:1/1 }
+  .portfolio-card .overlay{ background:rgba(52,53,59,0.0); opacity:0; transition:background .18s ease,opacity .18s ease }
+  .portfolio-card:active .overlay,
+  .portfolio-card:focus .overlay,
+  .portfolio-card.open .overlay{ background:rgba(52,53,59,0.75); opacity:1 }
+  .portfolio-card img{ transform:none }
+}
+@media(max-width:420px){
+  .portfolio-card{ flex:0 0 calc(100% - 24px); max-width:420px }
+}
+@media(prefers-reduced-motion:reduce){
+  .portfolio-card img, .portfolio-card, .portfolio-card .overlay{ transition:none }
+}
+
+/* -------- Experience / Projects -------- */
+.experience{ display:flex; flex-direction:column; width:100vw; align-items:center; justify-content:center; position:relative }
+.darker-div{ background-color:#34353a; width:100vw; height:20vh }
+.experience h1{
+  position:absolute; color:var(--text); font-size:clamp(34px,5.2vw,62px); font-family:"Libre Baskerville",serif;
+  top:10%; left:15%; transform:translate(-50%,-50%);
+}
+.lighter-div{ background-color:var(--card); width:100vw; padding:10vh; display:flex; flex-direction:column; gap:50px; box-sizing:border-box }
+.lighter-div .exp{ width:100%; max-width:900px; margin-left:0; position:relative }
+.exp h2{ color:var(--text); font-size:32px; font-weight:400 }
+.exp h2::before{
+  content:""; height:20px; width:20px; background-color:var(--accent); position:absolute; top:7.5%; left:-5%;
+  transform:translate(-50%,-50%); border-radius:50%; box-shadow:0 0 20px 5px var(--accent);
+}
+.exp-desc::before{ content:""; height:190px; width:2.5px; background-color:var(--text); position:absolute; top:55%; left:-5%; transform:translate(-50%,-50%) }
+
+/* -------- Contact (clickable cards) -------- */
+.contact-me{
+  width:100vw; padding:clamp(32px,8vw,100px); display:flex; flex-direction:column; align-items:center; justify-content:center; box-sizing:border-box;
+}
+.contact-me h1{ font-size:clamp(2rem,4.2vw,3.5rem); color:var(--text); font-family:"Libre Baskerville",serif; font-weight:700; margin:0 0 1.25rem 0 }
+.contact{ display:flex; gap:1.25rem; flex-wrap:wrap; justify-content:center; align-items:center; width:100%; max-width:1000px; margin-top:1.5rem }
+.contact-card, .contact a.contact-card{
+  display:inline-flex; align-items:center; gap:.75rem; background-color:var(--accent); color:#34353b; padding:.65rem .9rem; border-radius:8px;
+  margin-top:1rem; text-decoration:none; transition:transform 160ms ease, box-shadow 160ms ease, opacity 120ms ease; box-shadow:0 6px 16px rgba(20,20,20,0.12); cursor:pointer;
+}
+.contact-card i{ font-size:1.35rem; color:#34353b; line-height:1; display:inline-block }
+.contact-card p{ margin:0; color:#34353b; font-weight:600; font-size:clamp(.9rem,1.6vw,1.05rem); white-space:nowrap }
+.contact-card:hover, .contact-card:focus{ transform:translateY(-4px); box-shadow:0 12px 30px rgba(20,20,20,0.18); opacity:.98; outline:none }
+.contact-card:focus-visible{ outline:3px solid rgba(52,53,59,0.15); outline-offset:4px }
+@media(max-width:480px){
+  .contact{ gap:.75rem; padding-inline:1rem }
+  .contact-card, .contact a.contact-card{ width:100%; justify-content:flex-start; padding:.8rem 1rem }
+  .contact-card p{ font-size:.95rem }
+}
+
+/* -------- Footer spacing helper -------- */
+footer{ padding:40px 20px; color:var(--muted); text-align:center }
