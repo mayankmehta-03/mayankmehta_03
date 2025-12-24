@@ -52,6 +52,26 @@ header{
 @media (max-width:768px){ .logo-img{ height:50px; padding:4px } }
 @media (max-width:480px){ .logo-img{ height:42px; padding:3px } }
 
+/* clickable logo wrapper */
+.logo-link{
+  position:fixed;
+  top:10px;
+  left:10px;
+  z-index:2001; /* above nav */
+  display:inline-block;
+}
+
+/* improve hover affordance */
+.logo-img{
+  cursor:pointer;
+}
+
+.logo-img:hover{
+  box-shadow:0 0 0 2px var(--accent);
+  transform:scale(1.05);
+}
+
+
 /* -------- Nav bar (fixed) -------- */
 header nav, nav{
   position:fixed;
@@ -66,8 +86,7 @@ header nav, nav{
   box-sizing:border-box;
 }
 
-/* NAV: Option A - links closer to logo (left-middle on desktop),
-   mobile unchanged (keeps responsive behaviour) */
+
 .nav-links-wrapper{
   flex:1;
   display:flex;
@@ -306,22 +325,22 @@ header{ padding-top: calc(60px + 18px); }
 }
 
 
-/* -------- Portfolio (final responsive + full-cover overlay) -------- */
-.portfolio{
+/* --------social-media  -------- */
+.social-media{
   display:flex;
   flex-direction:column;
   align-items:center;
   padding:clamp(40px,6vw,100px);
   box-sizing:border-box;
 }
-.portfolio h1{
+.social-media h1{
   font-size:clamp(32px,5vw,56px);
   font-family:"Libre Baskerville",serif;
   color:var(--text);
   margin-bottom:30px;
   text-align:center;
 }
-.portfolio-cards{
+.social-media-cards{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
   gap:clamp(14px,2vw,30px);
@@ -332,7 +351,7 @@ header{ padding-top: calc(60px + 18px); }
   padding-inline:clamp(10px,2vw,40px);
   box-sizing:border-box;
 }
-.portfolio-card{
+.social-media-card{
   display:block;
   position:relative;
   width:100%;
@@ -344,14 +363,14 @@ header{ padding-top: calc(60px + 18px); }
   text-decoration:none;
   color:inherit;
 }
-.portfolio-card img{
+.social-media-card img{
   display:block;
   width:100%;
   height:100%;
   object-fit:cover;
   transition:transform .4s ease;
 }
-.portfolio-card .overlay{
+.social-media-card .overlay{
   position:absolute;
   inset:0;
   display:flex;
@@ -366,14 +385,14 @@ header{ padding-top: calc(60px + 18px); }
   text-align:center;
   pointer-events:none;
 }
-.portfolio-card:hover .overlay,
-.portfolio-card:focus .overlay{
+.social-media-card:hover .overlay,
+.social-media-card:focus .overlay{
   background:rgba(52,53,59,0.78);
   opacity:1;
 }
-.portfolio-card:hover img,
-.portfolio-card:focus img{ transform:scale(1.04) }
-.portfolio-card .overlay h3{
+.social-media-card:hover img,
+.social-media-card:focus img{ transform:scale(1.04) }
+.social-media-card .overlay h3{
   margin:0;
   color:var(--text);
   font-size:clamp(16px,2vw,24px);
@@ -381,7 +400,7 @@ header{ padding-top: calc(60px + 18px); }
   font-weight:700;
   letter-spacing:.3px;
 }
-.portfolio-card .overlay .cta{
+.social-media-card .overlay .cta{
   display:inline-block;
   background:rgba(254,200,106,0.95);
   color:#34353b;
@@ -391,23 +410,23 @@ header{ padding-top: calc(60px + 18px); }
   font-size:clamp(12px,1.2vw,14px);
   pointer-events:none;
 }
-.portfolio-card:focus{ outline:none; box-shadow:0 8px 28px rgba(0,0,0,0.25) }
+.social-media-card:focus{ outline:none; box-shadow:0 8px 28px rgba(0,0,0,0.25) }
 
 /* Portfolio mobile: overlay appears only on touch/focus/click (JS handles `.open`) */
 @media(max-width:768px){
-  .portfolio-cards{ display:flex; flex-wrap:wrap; justify-content:center; gap:12px }
-  .portfolio-card{ flex:0 0 calc(50% - 12px); max-width:260px; aspect-ratio:1/1 }
-  .portfolio-card .overlay{ background:rgba(52,53,59,0.0); opacity:0; transition:background .18s ease,opacity .18s ease }
-  .portfolio-card:active .overlay,
-  .portfolio-card:focus .overlay,
-  .portfolio-card.open .overlay{ background:rgba(52,53,59,0.75); opacity:1 }
-  .portfolio-card img{ transform:none }
+  .social-media-cards{ display:flex; flex-wrap:wrap; justify-content:center; gap:12px }
+  .social-media-card{ flex:0 0 calc(50% - 12px); max-width:260px; aspect-ratio:1/1 }
+  .social-media-card .overlay{ background:rgba(52,53,59,0.0); opacity:0; transition:background .18s ease,opacity .18s ease }
+  .social-media-card:active .overlay,
+  .social-media-card:focus .overlay,
+ .social-media-card.open .overlay{ background:rgba(52,53,59,0.75); opacity:1 }
+  .social-media-card img{ transform:none }
 }
 @media(max-width:420px){
-  .portfolio-card{ flex:0 0 calc(100% - 24px); max-width:420px }
+  .social-media-card{ flex:0 0 calc(100% - 24px); max-width:420px }
 }
 @media(prefers-reduced-motion:reduce){
-  .portfolio-card img, .portfolio-card, .portfolio-card .overlay{ transition:none }
+  .social-media-card img, ..social-media-card, .social-media-card .overlay{ transition:none }
 }
 
 /* -------- Experience / Projects -------- */
@@ -448,3 +467,42 @@ header{ padding-top: calc(60px + 18px); }
 
 /* -------- Footer spacing helper -------- */
 footer{ padding:40px 20px; color:var(--muted); text-align:center }
+
+
+.logo-link::after{
+  content:"Go to top";
+  position:absolute;
+  top:70px;
+  left:0;
+  background:#000;
+  color:#fff;
+  padding:4px 8px;
+  font-size:12px;
+  border-radius:4px;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .2s ease;
+}
+
+.logo-link:hover::after{
+  opacity:1;
+}
+/* ===== Uniform Section Headings ===== */
+.section-title{
+  font-size:clamp(32px,5vw,56px);
+  font-family:"Libre Baskerville",serif;
+  font-weight:700;
+  color:var(--text);
+  margin-bottom:30px;
+  padding-inline:clamp(12px,8vw,100px);
+}
+.section-title::after{
+  content:"";
+  display:block;
+  width:clamp(50px,10vw,120px);
+  height:4px;
+  background:var(--accent);
+  margin-top:12px;
+  border-radius:2px;
+}
+
