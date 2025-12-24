@@ -12,11 +12,20 @@
 <body>
     <header>
         <nav>
-            <img src="assets/logo.png" alt="logo" class="logo-img">
+
+            <a href="#" class="logo-link">
+                <img src="assets/logo.png" alt="logo" class="logo-img">
+            </a>
+
               <div class="nav-links-wrapper">
         <ul>
             <li><a href="#" class="active">About</a></li>
-            <li><a href="#portfolio-loc">Portfolio</a></li>
+            <li><a href="#social-media-loc">Social-Sites</a></li>
+
+            <li>
+                <a href="assets/mayankmehta.pdf" target="_blank">Resume</a>
+            </li>
+
             <li><a href="#contact-loc">Contact</a></li>
         </ul>
     </div>
@@ -26,21 +35,24 @@
                 <h3>I'm <span>Mayank Mehta</span><br>AI • ML • Cyber Security<br>Full-Stack Developer
 </h3>
     </header>
+
     <section class="about">
-        <h1>About</h1>
+        <h1 class="section-title">About</h1>
         <div class="description">
             <div class="line"></div>
-            <p>I’m a passionate and constantly growing developer who loves working with Python, Web Development, AI/ML, Data Science, and Cyber Security. I enjoy understanding how things work beneath the surface and solving problems with clean, logical, and efficient code.
-I’ve built projects across different domains from scrapers and backend systems to full-stack applications and I’m always exploring new technologies to sharpen my skills.
-I learn fast, adapt quickly, and push myself to improve every single day. My curiosity keeps me experimenting, building, and finding smarter ways to create meaningful digital solutions.
-<br>
-<br>Hobbies: photography, sports, travelling, tech exploration, and solving logical challenges.
+            <p>
+I’m a growth-driven developer with hands-on experience in Python, full-stack web development, AI/ML, data-driven applications, and cyber security. I enjoy breaking down complex problems, understanding how systems work internally, and building solutions that are clean, efficient, and scalable.
+<br><br>
+Through my projects, I’ve worked across backend logic, real-time systems, machine learning workflows, and user-facing applications, which has strengthened my problem-solving approach and adaptability to new technologies.
+<br><br>
+Outside of development, I enjoy photography, sports, travelling, exploring emerging technologies, and solving logical challenges — interests that keep my creativity sharp and my curiosity active.
 </p>
+
         </div>
     </section>
 
     <section class="skills">
-        <h1>My Skills</h1>
+        <h1 class="section-title">Skills</h1>
         <div class="cards">
             <div class="skill-card">
                 <img src="assets/python.svg" alt="">
@@ -58,7 +70,7 @@ I learn fast, adapt quickly, and push myself to improve every single day. My cur
                 <img src="assets/c.jpg" alt="">
                 <h2>C</h2>
             </div>
-    
+
             <div class="skill-card">
                 <img src="assets/js.svg" alt="">
                 <h2>JavaScript</h2>
@@ -86,10 +98,11 @@ I learn fast, adapt quickly, and push myself to improve every single day. My cur
         </div>
     </section>
 
-    <section class="portfolio" id="portfolio-loc">
-        <h1>Portfolio</h1>
-        <div class="portfolio-cards">
-  <a class="portfolio-card" href="https://github.com/mayankmehta-03" target="_blank" rel="noopener">
+    <section class="social-media" id="social-media-loc">
+        <h1 class="section-title">Social-Sites</h1>
+        <div class="social-media-cards">
+
+  <a class="social-media-card" href="https://github.com/mayankmehta-03" target="_blank" rel="noopener">
     <img src="assets/github.jpg" alt="GitHub profile">
     <div class="overlay">
       <h3>GitHub</h3>
@@ -97,7 +110,7 @@ I learn fast, adapt quickly, and push myself to improve every single day. My cur
     </div>
   </a>
 
-  <a class="portfolio-card" href="https://www.linkedin.com/in/mayankmehta03" target="_blank" rel="noopener">
+  <a class="social-media-card" href="https://www.linkedin.com/in/mayankmehta03" target="_blank" rel="noopener">
     <img src="assets/linkedin.jpg" alt="LinkedIn profile">
     <div class="overlay">
       <h3>LinkedIn</h3>
@@ -105,7 +118,7 @@ I learn fast, adapt quickly, and push myself to improve every single day. My cur
     </div>
   </a>
 
-  <a class="portfolio-card" href="https://x.com/mayankmehta_03" target="_blank" rel="noopener">
+  <a class="social-media-card" href="https://x.com/mayankmehta_03" target="_blank" rel="noopener">
     <img src="assets/x.jpg" alt="X profile">
     <div class="overlay">
       <h3>X</h3>
@@ -113,7 +126,7 @@ I learn fast, adapt quickly, and push myself to improve every single day. My cur
     </div>
   </a>
 
-  <a class="portfolio-card" href="https://www.instagram.com/mayankmehta_03" target="_blank" rel="noopener">
+  <a class="social-media-card" href="https://www.instagram.com/mayankmehta_03" target="_blank" rel="noopener">
     <img src="assets/insta.jpg" alt="Instagram profile">
     <div class="overlay">
       <h3>Instagram</h3>
@@ -124,10 +137,9 @@ I learn fast, adapt quickly, and push myself to improve every single day. My cur
 
     </section>
 
-
     <section class="experience">
         <div class="darker-div"></div>
-        <h1>Projects</h1>
+        <h1 class="section-title">Projects</h1>
         <div class="lighter-div">
             <div class="exp">
                 <h2>ChatApp (Full Stack + Real-Time Chat Application)</h2>
@@ -176,8 +188,9 @@ Tech Stack: Python, pandas, NumPy, scikit-learn, NLP, Jupyter Notebook</p>
             </div>
         </div>
     </section>
+
    <section class="contact-me" id="contact-loc">
-    <h1>Contact Me</h1>
+    <h1 class="section-title">Contact Me</h1>
     <div class="contact">
 
         <a href="https://wa.me/917017817344" target="_blank" class="contact-card">
@@ -185,19 +198,17 @@ Tech Stack: Python, pandas, NumPy, scikit-learn, NLP, Jupyter Notebook</p>
             <p>WhatsApp</p>
         </a>
 
-  
         <a href="tel:+917017817344" class="contact-card">
             <i class="ri-phone-line"></i>
             <p>+91 7017817344</p>
         </a>
-
 
         <a href="mailto:mayankm1432@gmail.com" class="contact-card">
             <i class="ri-mail-line"></i>
             <p>mayankm1432@gmail.com</p>
         </a>
 
-        <a href="https://www.google.com/maps/place/Pithoragarh,+Uttarakhand" 
+        <a href="https://www.google.com/maps/place/Pithoragarh,+Uttarakhand"
            target="_blank" class="contact-card">
             <i class="ri-map-pin-3-line"></i>
             <p>Pithoragarh, Uttarakhand, India</p>
@@ -210,4 +221,3 @@ Tech Stack: Python, pandas, NumPy, scikit-learn, NLP, Jupyter Notebook</p>
 </body>
 
 </html>
-
